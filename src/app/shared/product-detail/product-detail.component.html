@@ -1,0 +1,84 @@
+<div class="product-detail" *ngIf="mode != 'detail' && productDetailForm">
+    <div class="container-fluid">
+        <div class="row product-header">
+            <a [routerLink]="mode === 'view' ? [''] : ['/admin/products']">{{ 'product.back' | translate }}</a>
+            <h2 class="product-title mb-3">{{ 'product.detail.title' | translate }}</h2>
+        </div>
+        <div class="row">
+            <div class="product-info col col-md-6" >
+                <form [formGroup]="productDetailForm">
+                    <div class="form-floating mb-3">
+                        <label class="form-label" for="name">{{ 'product.detail.name' | translate }}</label>
+                        <input type="text" class="form-control" id="name" formControlName="name">
+                    </div>
+                    <div class="form-floating mb-3">
+                        <label class="form-label" for="desc">{{ 'product.detail.desc' | translate }}</label>
+                        <textarea class="form-control" id="desc" formControlName="desc"></textarea>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <label class="form-label" for="price">{{ 'product.detail.price' | translate }}</label>
+                        <input type="text" class="form-control" id="price" formControlName="price">
+                    </div>
+        
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary" (click)="submit()">{{ (mode === 'add' ? 'product.add' : 'product.update') | translate }}</button>
+                        <button type="button" class="btn btn-danger" (click)="delete()">{{ 'product.detail.delete' | translate }}</button>
+                    </div>
+                </form>
+            </div>            
+            <div class="product-images col col-md-6">
+                <div class="product-upload mb-3" *ngIf="mode === 'edit'">
+                    <label class="form-label" for="file">{{ 'product.detail.upload' | translate }}</label>
+                    <div class="row">
+                        <div class="col-8">
+                            <input 
+                                type="file"
+                                (change)="onChangeImage($event)"
+                                name="image"
+                                accept="image/*"
+                            >   
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-success btn-sm" (click)="upload()">
+                                Upload
+                            </button>
+                        </div>
+                    </div>                                                          
+                </div>
+                <div class="images" *ngIf="productDetail && productDetail.imageUrls">
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-2">
+                        <div class="col mb-3" *ngFor="let url of productDetail.imageUrls">
+                            <img class="product-image" [src]="url | buildImageUrl:productDetail.productId">
+                            <div class="product-image-actions">
+                                <button *ngIf="url !== productDetail.defaultImage" type="button" class="btn btn-sm btn-primary" (click)="setDefault(url)">{{ 'product.detail.setdefault' | translate }}</button>
+                                <button *ngIf="url !== productDetail.defaultImage" type="button" class="btn btn-sm btn-danger" (click)="deleteImage(url)">{{ 'product.detail.delete' | translate }}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+</div>
+
+<div class="product" *ngIf="mode === 'detail' && productDetail">
+    <div class="container">
+        <div class="product-intro mb-5">
+            <p class="d-flex">
+                <span class="section-title">{{ productDetail.name }}</span>
+                <span class="float-left">{{ 'product.price' | translate:{value: (productDetail.price ? productDetail.price : '面议')} }}</span>
+            </p>
+            <p>{{ productDetail.desc }}</p>        
+        </div>
+        <div class="product-detail-image" *ngIf="albumList.length">
+            <div class="row">
+                <div class="col col-4" *ngFor="let image of albumList; let i=index">
+                    <img class="product-image mb-3" [src]="image.thumb" (click)="open(i)" />
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<app-loading [isLoading]="isLoading$ | async"></app-loading>

@@ -1,0 +1,19 @@
+<div class="admin">
+    <div class="container-fluid">
+        <div class="row justify-content-md-center">
+            <div class="col-md-3">
+                <ul class="list-group mb-3">
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <a [routerLink]="['/admin/info']" routerLinkActive="router-link-active">{{ 'management.info.title' | translate }}</a>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <a [routerLink]="['/admin/products']" routerLinkActive="router-link-active">{{ 'management.product.title' | translate }}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-9">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+.product {
+    min-height: calc(100vh - 265px);
+}
+
+.header {
+    display: flex;
+    .btn-primary {
+        margin-left: auto;
+    }
+}

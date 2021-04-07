@@ -1,0 +1,35 @@
+<div class="info">
+    <div class="container-flud">
+        <h2 class="text-center">{{ 'management.info.title' | translate }}</h2>
+        <form [formGroup]="infoForm">
+            <div class="form-floating mb-3">
+                <label class="form-label" for="name">{{ 'management.info.name' | translate }}</label>
+                <input type="text" class="form-control" id="name" formControlName="name">
+            </div>
+            <div class="form-floating mb-3">
+                <label class="form-label" for="desc">{{ 'management.info.desc' | translate }}</label>
+                <textarea class="form-control" id="desc" formControlName="desc"></textarea>
+            </div>
+            <div class="form-floating mb-3">
+                <label class="form-label" for="contacts">{{ 'management.info.contact' | translate }}</label>
+                <input type="text" class="form-control" id="contacts" formControlName="contacts">
+            </div>
+            <div class="form-floating mb-3">
+                <label class="form-label" for="phone">{{ 'management.info.phone' | translate }}</label>
+                <input type="text" class="form-control" id="phone" formControlName="phone">
+            </div>
+            <div class="form-floating mb-3">
+                <label class="form-label" for="email">{{ 'management.info.email' | translate }}</label>
+                <input type="text" class="form-control" id="email" formControlName="email">
+            </div>
+            <div class="form-floating mb-3">
+                <label class="form-label" for="wechat">{{ 'management.info.wechat' | translate }}</label>
+                <input type="text" class="form-control" id="wechat" formControlName="wechat">
+            </div>
+
+            <button type="submit" class="btn btn-primary" (click)="submit()" [disabled]="!isChanged">{{ 'management.update' | translate }}</button>
+        </form>
+    </div>
+</div>
+
+<app-loading [isLoading]="isLoading$ | async"></app-loading>

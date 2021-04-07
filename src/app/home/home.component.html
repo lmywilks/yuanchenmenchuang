@@ -1,0 +1,30 @@
+
+
+<section class="py-5 container introduce">
+    <div>
+        <h2 class="mb-4">{{ 'intro.title' | translate }}</h2>
+        <div class="row">
+            <div class="col-md-7">
+                <p class="lead text-muted" *ngIf="info.desc">{{ info.desc }}</p>
+            </div>
+            <div class="col-md-5">
+                <p class="lead text-muted" *ngIf="info.contacts">{{ 'intro.contact' | translate }}: {{ info.contacts }}</p>
+                <p class="lead text-muted" *ngIf="info.phone">{{ 'intro.phone' | translate }}: {{ info.phone }}</p>
+                <p class="lead text-muted" *ngIf="info.email">{{ 'intro.email' | translate }}: {{ info.email }}</p>
+                <p class="lead text-muted" *ngIf="info.wechat">{{ 'intro.wechat' | translate }}: {{ info.wechat }}</p>
+            </div>
+        </div>        
+    </div>
+</section>
+
+<section class="album py-5 bg-light">
+    <div class="container">
+        <h4 class="text-center mb-5">{{ 'intro.product' | translate }}</h4>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" *ngIf="productList">
+            <div class="col" *ngFor="let product of productList;let i = index;">
+                <app-album [product]="product"></app-album>
+            </div>
+        </div>
+    </div>
+</section>
+

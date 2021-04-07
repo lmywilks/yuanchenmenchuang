@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  api_root: 'http://localhost:3000',
+  storage: 'https://firebasestorage.googleapis.com/v0/b/yuanchenmenchuang.appspot.com/o/products%2F'
 };
 
 /*

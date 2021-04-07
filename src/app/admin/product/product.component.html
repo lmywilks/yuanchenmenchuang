@@ -1,0 +1,17 @@
+<div class="product">
+    <div class="container-fliud">
+        <h2 class="header mb-3 text-center">
+            <span>{{ 'management.product.title' | translate }}</span>
+            <a role="button" [routerLink]="['add']" class="btn btn-primary">{{ 'product.add' | translate }}</a>
+        </h2>
+        <div class="product-list">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 g-3">
+                <div class="col" *ngFor="let product of productList$ | async">
+                    <app-album [product]="product" [isAdmin]="true"></app-album>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-loading [isLoading]="isLoading$ | async"></app-loading>

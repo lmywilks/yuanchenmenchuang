@@ -1,0 +1,15 @@
+<div class="card shadow-sm">
+    <img *ngIf="product.defaultImage" [src]="product.defaultImage | buildImageUrl:product.productId">
+    <svg *ngIf="!product.defaultImage" class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">{{ 'product.detail.noimage' | translate }}</text></svg>
+    <div class="card-body">
+        <p class="card-text">{{ product.desc }}</p>
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+                <button *ngIf="!isAdmin" type="button" class="btn btn-sm btn-outline-success" (click)="view()">{{ 'product.detail.view' | translate }}</button>
+                <button *ngIf="isAdmin" type="button" class="btn btn-sm btn-outline-primary" (click)="edit()">{{ 'product.detail.edit' | translate }}</button>
+                <button *ngIf="isAdmin" type="button" class="btn btn-sm btn-outline-danger" (click)="delete(product.productId)">{{ 'product.detail.delete' | translate }}</button>
+            </div>
+            <small class="text-muted">{{ 'product.price' | translate:{value: (product.price ? product.price : '面议')} }}</small>
+        </div>
+    </div>
+</div>

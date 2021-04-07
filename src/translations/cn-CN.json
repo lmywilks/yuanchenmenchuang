@@ -1,0 +1,88 @@
+{    
+    "name": "源晨门窗",
+    "submit": "提交",
+    "management": {
+        "name": "源晨门窗管理系统",
+        "title": "登录",
+        "username": "用户名",
+        "password": "密码",        
+        "update": "更新",
+        "product": {
+            "title": "产品信息"
+        },
+        "info": {
+            "title": "公司信息",
+            "name": "公司名称",
+            "desc": "简介",
+            "contact": "联系人",
+            "phone": "联系电话",
+            "email": "联系邮箱",
+            "wechat": "微信"
+        }
+    },
+    "intro": {
+        "title": "简介",
+        "contact": "联系人",
+        "phone": "联系电话",
+        "email": "联系邮件",
+        "wechat": "联系微信",
+        "product": "产品信息"
+    },
+    "product": {
+        "add": "添加新产品",
+        "update": "更新产品信息",
+        "price": "产品价格： {{value}}",
+        "back": "后退",
+        "detail": {
+            "view": "详细资料",
+            "edit": "修改",
+            "delete": "删除",
+            "noimage": "无产品图片",            
+            "title": "产品详细信息",
+            "name": "产品名称",
+            "desc": "产品描述",
+            "price": "产品价格",
+            "upload": "上传图片",
+            "setdefault": "设为封面"
+        }
+    },
+    "errors": {
+        "login": {
+            "missing": "缺少用户名或者密码",
+            "wronguser": "用户不存在",
+            "wrongcredential": "密码不正确"
+        },
+        "product": {
+            "notfound": "产品不存在",
+            "badinput": "产品名称不能为空"
+        },
+        "image": {
+            "wrongtype": "上传的图片格式不正确，只支持jpeg,jpg,png格式",
+            "nofile": "无法找到上传图片"
+        },
+        "info": {
+            "badrequest": "公司描述不能为空"
+        }
+    },
+    "update": {
+        "product": {
+            "success": "产品信息更新成功"
+        },
+        "info": {
+            "success": "公司信息更新成功"
+        }
+    },
+    "create": {
+        "product": {
+            "success": "新产品添加成功"
+        }        
+    },
+    "delete": {
+        "product": {
+            "success": "产品删除成功"
+        },
+        "image": {
+            "success": "产品图片删除成功"
+        }
+    }
+}
