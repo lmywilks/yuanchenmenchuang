@@ -18,6 +18,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { LightboxModule } from 'ngx-lightbox';
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 
 @NgModule({
@@ -38,7 +41,9 @@ import { LightboxModule } from 'ngx-lightbox';
     NgbModule,
     ToastrModule.forRoot({ positionClass: 'toast-center-center' }),
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot(effects)
+    EffectsModule.forRoot(effects),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

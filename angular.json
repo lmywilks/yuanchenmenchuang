@@ -38,8 +38,8 @@
             ],
             "scripts": [],
             "allowedCommonJsDependencies": [
-                "ngx-lightbox"
-             ]
+              "ngx-lightbox"
+            ]
           },
           "configurations": {
             "production": {
@@ -130,6 +130,10 @@
               "devServerTarget": "yuanchenmenchuang:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }

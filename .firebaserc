@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "yuanchenmenchuang"
+  },
+  "targets": {
+    "yuanchenmenchuang": {
+      "hosting": {
+        "yuanchenmenchuang": [
+          "yuanchenmenchuang"
+        ]
+      }
+    }
+  }
+}
